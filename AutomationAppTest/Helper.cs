@@ -12,6 +12,7 @@ namespace AutomationAppTest
 
         public static  void OpenBrowser()
         {
+            //System.Environment.SetEnvironmentVariable("webdriver.chrome.driver", @"C:\Users%USERNAME%\AppData\Local\Google\Chrome\Application\chrome.exe");
             using (IWebDriver driver = new ChromeDriver(Environment.CurrentDirectory))
             {
                 //Notice navigation is slightly different than the Java version
