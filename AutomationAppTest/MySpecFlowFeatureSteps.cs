@@ -39,7 +39,7 @@ namespace AutomationAppTest
         [Given(@"I have a website url")]
         public void GivenIHaveAWebsiteUrl()
         {
-            Helper.OpenBrowser();
+            Helper.OpenBootstrapSite();
             ScenarioContext.Current.Pending();
         }
 
@@ -55,6 +55,6 @@ namespace AutomationAppTest
             ScenarioContext.Current.Pending();
         }
 
-
+        
     }
 }
