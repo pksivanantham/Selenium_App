@@ -46,6 +46,8 @@ namespace AutomationAppTest
             using (IWebDriver driver = new ChromeDriver(Environment.CurrentDirectory))
             {
 
+                driver.Manage().Window.Maximize();
+
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
 
                 //Notice navigation is slightly different than the Java version
@@ -71,6 +73,8 @@ namespace AutomationAppTest
 
                 var selectElement = driver.FindElement(By.XPath("/html/body/div/div/main/div[2]/div/div/a[1]"));
 
+               var dropDownText = selectElement.Text;
+
                 selectElement.Click();
 
 
@@ -86,13 +90,12 @@ namespace AutomationAppTest
                 // Now submit the form. WebDriver will find the form for us from the element
                 //query.Submit();
 
-                // Google's search is rendered dynamically with JavaScript.
-                // Wait for the page to load, timeout after 10 seconds
-                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-                wait.Until(d => d.Title.StartsWith("cheese", StringComparison.OrdinalIgnoreCase));
 
                 // Should see: "Cheese - Google Search" (for an English locale)
                 Console.WriteLine("Page title is: " + driver.Title);
+
+
+                driver.Quit();
             }
         }
     }

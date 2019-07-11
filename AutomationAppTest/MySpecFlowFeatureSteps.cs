@@ -57,4 +57,14 @@ namespace AutomationAppTest
 
         
     }
+
+    [Binding]
+    public class Hooks
+    {
+        [BeforeFeature]
+        public static void Test()
+        {
+
+        }
+    }
 }
