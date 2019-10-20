@@ -55,16 +55,11 @@ namespace AutomationAppTest
             ScenarioContext.Current.Pending();
         }
 
-        
+
+
+
+
     }
 
-    [Binding]
-    public class Hooks
-    {
-        [BeforeFeature]
-        public static void Test()
-        {
 
-        }
-    }
 }

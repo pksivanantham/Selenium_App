@@ -14,3 +14,8 @@ Scenario:Open a browser
 	Given I have a website url
 	When I launch the browser
 	Then It should navigate to the given url
+	
+
+
+
+

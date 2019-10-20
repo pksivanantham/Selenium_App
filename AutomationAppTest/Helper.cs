@@ -7,13 +7,15 @@ using System.Collections.Generic;
 using System.Text;
 using AutomationAppTest.PageObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TechTalk.SpecFlow;
 
 namespace AutomationAppTest
 {
+    [Binding]
     public static class Helper
     {
-
-        public static  void OpenBrowser()
+        public static IWebDriver _driver;
+        public static void OpenBrowser()
         {
             //System.Environment.SetEnvironmentVariable("webdriver.chrome.driver", @"C:\Users%USERNAME%\AppData\Local\Google\Chrome\Application\chrome.exe");
             using (IWebDriver driver = new ChromeDriver(Environment.CurrentDirectory))
@@ -73,12 +75,12 @@ namespace AutomationAppTest
 
                 var selectElement = driver.FindElement(By.XPath("/html/body/div/div/main/div[2]/div/div/a[1]"));
 
-               var dropDownText = selectElement.Text;
+                var dropDownText = selectElement.Text;
 
                 selectElement.Click();
 
 
-               // var selectElement = new SelectElement(query);
+                // var selectElement = new SelectElement(query);
 
                 //selectElement.SelectByText("Action");
 
@@ -98,5 +100,19 @@ namespace AutomationAppTest
                 driver.Quit();
             }
         }
+
+        public static IWebElement WaitForElementToPresent(this IWebDriver webDriver, By by)
+        {
+
+            var wait = new WebDriverWait(webDriver, TimeSpan.FromMinutes(5));
+
+            var element = wait.Until(x => x.FindElement(by));
+
+            return element;
+
+
+        }
+
+
     }
 }
